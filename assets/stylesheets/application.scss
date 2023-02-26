@@ -2,6 +2,80 @@ body {
   font-family: Helvetica;
 }
 .app {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  height: 100vh;
+  display: flex;
+  .logo {
+    width: 8%;
+    background-color: #d1d1d1;
+    img {
+      width: 40px;
+      height: 40px;
+      margin: 10px 5px;
+    }
+  }
+  .channels {
+    width: 30%;
+    background-color: #F4F4F4;
+    .channels-title {
+      padding-left: 20px;
+      font-weight: bolder;
+      height: 15%;
+      display: flex;
+      align-items: center;
+      color: rgb(83, 83, 83);
+      font-size: 20px;
+    }
+    .channels-container {
+      height: 85%;
+      padding: 20px;
+    }
+    .channel {
+      color: grey;
+      cursor: pointer;
+      &.active {
+        font-weight: bold;
+        color: black;
+        font-size: 17px;
+      }
+    }
+  }
+  .messages {
+    width: 62%;
+    border: 2px solid red;
+    .messages-title {
+      border-bottom: 1px solid #F4F4F4;
+      font-weight: bold;
+      padding-left: 20px;
+      height: 15%;
+      display: flex;
+      align-items: center;
+    }
+    .messages-container {
+      height: 70%;
+      padding: 20px;
+      .message {
+        color: black;
+        margin: 0 0 15px 0;
+        h6 {
+          font-weight: bold;
+          color: tomato;
+          small {
+            color: grey;
+            font-size: 12px;
+            font-style: italic;
+          }
+        }
+        p {
+          margin: 0;
+        }
+      }
+    }
+    .messages-form {
+      border-top: 1px solid #F4F4F4;
+      height: 15%;
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+    }
+  }
 }
