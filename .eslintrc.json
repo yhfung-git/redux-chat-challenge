@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "airbnb/hooks"],
   "rules": {
     "no-console": "off",
     "comma-dangle": "off",
@@ -11,5 +11,5 @@
   "env": {
     "browser": true
   },
-  "parser": "babel-eslint"
+  "parser": "@babel/eslint-parser"
 }
