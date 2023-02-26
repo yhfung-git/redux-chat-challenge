@@ -4,28 +4,28 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Internal
-import { setMessages } from '../actions';
+import { currentUser, setMessages } from '../actions';
 import Message from './message';
 import MessageForm from './message_form';
 
 class Messages extends Component {
   UNSAFE_componentWillMount() {
     this.props.setMessages(this.props.selectedChannel);
-    // this.props.currentUser(prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`);
+    this.props.currentUser(prompt("What is your username?"));
   }
 
   renderList = () => {
     return this.props.messages.map(message =>
-      <Message message={message} key={message.created_at}/>
-    )
-  }
+        <Message message={message} key={message.id}/>
+      )
+    }
 
   render() {
     return (
       <div className="messages">
-        <div className='messages-title'>Channel #xxx</div>
-        <div className='messages-container'>{this.renderList()}</div>
-        <div className='messages-form'><MessageForm /></div>
+        <div className='messages-title'>Channel #{this.props.selectedChannel}</div>
+        <div className='messages-container'>{ this.renderList() }</div>
+        <MessageForm />
       </div>
     )
   }
@@ -33,7 +33,7 @@ class Messages extends Component {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { setMessages: setMessages }, dispatch
+    { setMessages: setMessages, currentUser: currentUser }, dispatch
   )
 }
 

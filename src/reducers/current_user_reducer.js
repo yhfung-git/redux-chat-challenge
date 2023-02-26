@@ -1,16 +1,16 @@
-// import { CURRENT_USER } from '../actions'
+import { CURRENT_USER } from '../actions'
 
-// const currentUserReducer = (state, action) => {
-//   if (state === undefined) {
-//     return null;
-//   }
+const currentUserReducer = (state, action) => {
+  if (state === undefined) {
+    return null;
+  }
 
-//   switch (action.type) {
-//     case CURRENT_USER:
-//       return action.payload;
-//     default:
-//       return state;
-//   }
-// }
+  switch (action.type) {
+    case CURRENT_USER:
+      return action.payload;
+    default:
+      return state;
+  }
+}
 
-// export default currentUserReducer;
+export default currentUserReducer;

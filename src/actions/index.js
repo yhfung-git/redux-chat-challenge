@@ -4,32 +4,34 @@ export const SET_MESSAGES = 'SET_MESSAGES';
 export const SELECTED_CHANNEL = 'SELECTED_CHANNEL';
 export const CURRENT_USER = 'CURRENT_USER';
 export const SET_CHANNELS = 'SET_CHANNELS';
+export const NEW_MESSAGE = 'NEW_MESSAGE';
 
 export function setMessages(channel) {
-  const url = `${link}/${channel}/messages`
-  const promise = fetch(url).then(res => res.json());
+  const url = `${link}/${channel}/messages`;
+  const promise = fetch(url).then(r => r.json());
 
   return {
     type: SET_MESSAGES,
-    payload: [
-      {
-        "id": 1,
-        "author": "Boris",
-        "content": "Salut",
-        "channel": "general",
-        "created_at": "2014-11-06T14:23:26.104Z",
-        "updated_at": "2014-11-06T14:23:26.104Z"
-      },
-      {
-        "id": 2,
-        "author": "Seb",
-        "content": "Yo",
-        "channel": "general",
-        "created_at": "2014-11-06T14:23:49.323Z",
-        "updated_at": "2014-11-06T14:23:49.323Z"
-      }
-    ]
+    payload: promise
   };
+}
+
+export function createMessage(channel, author, content) {
+  const url = `${link}/${channel}/messages`;
+  const body = { author, content }; // ES6 destructuring
+  const promise = fetch(url, {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  }).then(res => res.json());
+
+  return {
+    type: NEW_MESSAGE,
+    payload: promise
+  }
 }
 
 export function selectChannel(channel) {
