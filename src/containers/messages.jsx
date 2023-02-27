@@ -19,7 +19,18 @@ class Messages extends Component {
 
   // Use the scrollHeight property of the messages DOM element, and set it to the scrollTop property.
   componentDidUpdate() {
-    this.listRef.scrollTop = this.listRef.scrollHeight;
+    // Check if the user is already at the BOTTOM of the message box
+    const isScrolledToBottom =
+      this.listRef.scrollHeight - this.listRef.clientHeight <=
+      this.listRef.scrollTop + 75;
+
+    // Check if the user is already at the TOP of the message box
+    const isScrolledToTop = this.listRef.scrollTop === 0;
+
+    // Only update the scrollTop if the user is already at the BOTTOM or TOP
+    if (isScrolledToBottom || isScrolledToTop) {
+      this.listRef.scrollTop = this.listRef.scrollHeight;
+    }
   }
 
   renderList = () => {
