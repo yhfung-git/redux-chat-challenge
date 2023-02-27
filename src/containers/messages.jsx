@@ -9,15 +9,17 @@ import Message from './message';
 import MessageForm from './message_form';
 
 class Messages extends Component {
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.props.setMessages(this.props.selectedChannel);
     this.props.currentUser(prompt("What is your username?") || `user${Math.floor(10 + (Math.random() * 90))}`);
-  }
-
-  componentDidMount() {
     setInterval(() => {
       this.props.setMessages(this.props.selectedChannel);
     }, 1000);
+  }
+
+  // Use the scrollHeight property of the messages DOM element, and set it to the scrollTop property.
+  componentDidUpdate() {
+    this.listRef.scrollTop = this.listRef.scrollHeight;
   }
 
   renderList = () => {
@@ -30,7 +32,7 @@ class Messages extends Component {
     return (
       <div className="messages">
         <div className='messages-title'>Channel #{this.props.selectedChannel}</div>
-        <div className='messages-container'>{ this.renderList() }</div>
+        <div className='messages-container' ref={(listRef) => { this.listRef = listRef;}}>{ this.renderList() }</div>
         <MessageForm />
       </div>
     )
