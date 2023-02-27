@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {emojify} from 'react-emojione';
 
 // to set up the username's color randomly
 function strToRGB(str) {
@@ -20,7 +21,7 @@ class Message extends Component {
     return (
       <div className='message'>
         <h6 style={{ color: strToRGB(author) }}>{author}<small> - {time}</small></h6>
-        <p>{content}</p>
+        <p>{emojify(content)}</p>
       </div>
     )
   }
