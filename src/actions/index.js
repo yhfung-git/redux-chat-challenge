@@ -8,7 +8,7 @@ export const NEW_MESSAGE = 'NEW_MESSAGE';
 
 export function setMessages(channel) {
   const url = `${link}/${channel}/messages`;
-  const promise = fetch(url).then(r => r.json());
+  const promise = fetch(url).then(res => res.json());
 
   return {
     type: SET_MESSAGES,
@@ -22,7 +22,7 @@ export function createMessage(channel, author, content) {
   const promise = fetch(url, {
     method: 'POST',
     headers: {
-      Accept: 'application/json',
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(body)

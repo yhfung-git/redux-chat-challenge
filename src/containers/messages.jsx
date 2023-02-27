@@ -11,14 +11,20 @@ import MessageForm from './message_form';
 class Messages extends Component {
   UNSAFE_componentWillMount() {
     this.props.setMessages(this.props.selectedChannel);
-    this.props.currentUser(prompt("What is your username?"));
+    this.props.currentUser(prompt("What is your username?") || `user${Math.floor(10 + (Math.random() * 90))}`);
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      this.props.setMessages(this.props.selectedChannel);
+    }, 1000);
   }
 
   renderList = () => {
     return this.props.messages.map(message =>
-        <Message message={message} key={message.id}/>
-      )
-    }
+      <Message message={message} key={message.id}/>
+    )
+  }
 
   render() {
     return (
