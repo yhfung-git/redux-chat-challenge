@@ -48,7 +48,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     messages: state.messages,
-    selectedChannel: state.selectedChannel
+    selectedChannel: state.selectedChannel,
   }
 }
 

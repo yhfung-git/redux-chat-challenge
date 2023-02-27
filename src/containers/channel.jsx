@@ -21,7 +21,7 @@ class Channel extends Component {
 
     return (
       <div className={classes} onClick={this.handleClick}>
-        <p>#{this.props.channel}</p>
+        <p># {this.props.channel}</p>
       </div>
     )
   }
