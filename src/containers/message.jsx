@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 // to set up the username's color randomly
 function strToRGB(str) {
   let hash = 0;

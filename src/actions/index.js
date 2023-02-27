@@ -1,10 +1,10 @@
-const link = 'https://wagon-chat.herokuapp.com';
-
 export const SET_MESSAGES = 'SET_MESSAGES';
 export const SELECTED_CHANNEL = 'SELECTED_CHANNEL';
 export const CURRENT_USER = 'CURRENT_USER';
 export const SET_CHANNELS = 'SET_CHANNELS';
 export const NEW_MESSAGE = 'NEW_MESSAGE';
+
+const link = 'https://wagon-chat.herokuapp.com';
 
 export function setMessages(channel) {
   const url = `${link}/${channel}/messages`;

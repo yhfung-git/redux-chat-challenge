@@ -1,6 +1,9 @@
+// External
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
+// Internal
 import { setChannels } from '../actions';
 import Channel from './channel';
 
