@@ -1,28 +1,28 @@
 body {
   font-family: Helvetica;
+  box-sizing: border-box;
 }
 .app {
   height: 100vh;
   display: flex;
   .logo {
-    width: 5%;
+    width: 60px;
     background-color: #d1d1d1;
+    height: 100%;
+    padding: 10px;
     img {
-      width: 45px;
-      height: 45px;
-      display: block;
-      margin: 10px auto;
+      width: 40px;
+      height: 40px;
     }
   }
   .channels {
     width: 20%;
     background-color: #F4F4F4;
     .channels-title {
-      padding-left: 20px;
       font-weight: bolder;
       height: 10%;
       color: rgb(83, 83, 83);
-      font-size: 22px;
+      font-size: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -43,7 +43,7 @@ body {
     }
   }
   .messages {
-    width: 75%;
+    width: 80%;
     border-left: 2px solid #929292;
     .messages-title {
       border-bottom: 1px solid #F4F4F4;
@@ -99,17 +99,19 @@ body {
       }
       button {
         background-color: red;
-        border-color: red;
+        border: 1px solid red;
         color: white;
-        padding: 0 10px;
+        padding: 10px;
         height: 60%;
         border-radius: 0 4px 4px 0;
         font-weight: lighter;
         opacity: 0.6;
         transition: opacity 0.3s ease;
+        display: flex;
+        align-items: center;
       }
       button:hover {
-        opacity: 0.9;
+        opacity: 0.8;
       }
     }
   }
