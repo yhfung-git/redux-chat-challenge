@@ -17,6 +17,7 @@ root.render(
   <Provider store={reducers}>
     <Router history={history}>
       <Routes>
+        <Route path="/redux-chat-challenge" element={<Navigate to="/general" />} />
         <Route path="/" element={<Navigate to="/general" />} />
         <Route path="/:channel" element={<App />} />
       </Routes>
