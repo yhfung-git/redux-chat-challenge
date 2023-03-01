@@ -10,10 +10,10 @@ import MessageForm from './message_form';
 
 class Messages extends Component {
   componentDidMount() {
-    this.props.setMessages(this.props.selectedChannel);
+    this.props.setMessages(this.props.channelParams);
     this.props.currentUser(prompt("What is your username?") || `user${Math.floor(10 + (Math.random() * 90))}`);
     setInterval(() => {
-      this.props.setMessages(this.props.selectedChannel);
+      this.props.setMessages(this.props.channelParams);
     }, 1000);
   }
 
@@ -42,9 +42,9 @@ class Messages extends Component {
   render() {
     return (
       <div className="messages">
-        <div className='messages-title'>Channel #{this.props.selectedChannel}</div>
+        <div className='messages-title'>Channel #{this.props.channelParams}</div>
         <div className='messages-container' ref={(listRef) => { this.listRef = listRef;}}>{ this.renderList() }</div>
-        <MessageForm />
+        <MessageForm channelParams={this.props.channelParams}/>
       </div>
     )
   }
@@ -59,7 +59,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     messages: state.messages,
-    selectedChannel: state.selectedChannel,
+    // selectedChannel: state.selectedChannel,
   }
 }
 

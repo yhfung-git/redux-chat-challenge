@@ -9,13 +9,12 @@ import Channel from './channel';
 
 class Channels extends Component {
   renderList = () => this.props.channels.map(channel =>
-    <Channel channel={channel} key={channel}/>
+    <Channel channel={channel} key={channel} channelParams={this.props.channelParams}/>
   );
 
-  UNSAFE_componentWillMount() {
+  componentDidMount() {
     this.props.setChannels();
   }
-
 
   render() {
     return (

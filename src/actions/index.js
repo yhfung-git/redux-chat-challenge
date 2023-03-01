@@ -1,5 +1,5 @@
 export const SET_MESSAGES = 'SET_MESSAGES';
-export const SELECTED_CHANNEL = 'SELECTED_CHANNEL';
+// export const SELECTED_CHANNEL = 'SELECTED_CHANNEL';
 export const CURRENT_USER = 'CURRENT_USER';
 export const SET_CHANNELS = 'SET_CHANNELS';
 export const NEW_MESSAGE = 'NEW_MESSAGE';
@@ -34,12 +34,12 @@ export function createMessage(channel, author, content) {
   }
 }
 
-export function selectChannel(channel) {
-  return {
-    type: SELECTED_CHANNEL,
-    payload: channel
-  }
-}
+// export function selectChannel(channel) {
+//   return {
+//     type: SELECTED_CHANNEL,
+//     payload: channel
+//   }
+// }
 
 export function currentUser(username) {
   return {

@@ -2,6 +2,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { createBrowserHistory as history } from 'history';
 
 // internal modules
 import App from './components/app';
@@ -13,6 +15,11 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
   <Provider store={reducers}>
-    <App />
+    <Router history={history}>
+      <Routes>
+        <Route path="/" element={<Navigate to="/general" />} />
+        <Route path="/:channel" element={<App />} />
+      </Routes>
+    </Router>
   </Provider>
 );

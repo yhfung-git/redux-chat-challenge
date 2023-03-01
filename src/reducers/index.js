@@ -6,14 +6,13 @@ import reduxPromise from 'redux-promise';
 // Internal
 import channelsReducer from './channels_reducer';
 import messagesReducer from './messages_reducer';
-import selectedChannelReducer from './selected_channel_reducer';
+// import selectedChannelReducer from './selected_channel_reducer';
 import currentUserReducer from './current_user_reducer';
-
 
 const reducers = configureStore({
   reducer: {
     channels: channelsReducer,
-    selectedChannel: selectedChannelReducer,
+    // selectedChannel: selectedChannelReducer,
     messages: messagesReducer,
     currentUser: currentUserReducer
   },
